@@ -191,7 +191,7 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
-        <Link to={"/"}>Back</Link>
+        <Link to={"/react-masterclass-230610/"}>Back</Link>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
@@ -228,17 +228,21 @@ function Coin() {
           </Overview>
           <Tabs>
             <Tab isActive={chartMatch != null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`/react-masterclass-230610/${coinId}/chart`}>
+                Chart
+              </Link>
             </Tab>
             <Tab isActive={priceMatch != null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`/react-masterclass-230610/${coinId}/price`}>
+                Price
+              </Link>
             </Tab>
           </Tabs>
           <Switch>
-            <Route path={`/:coinID/price`}>
+            <Route path={`/react-masterclass-230610/:coinID/price`}>
               <Price coinId={coinId} />
             </Route>
-            <Route path={`/:coinID/chart`}>
+            <Route path={`/react-masterclass-230610/:coinID/chart`}>
               <Chart coinId={coinId} />
             </Route>
           </Switch>
