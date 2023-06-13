@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/static/js/main.eadfd993.js",
-    "index.html": "/index.html",
-    "main.eadfd993.js.map": "/static/js/main.eadfd993.js.map"
+    "main.js": "https://redbas3.github.io/react-masterclass-230610/static/js/main.f986a27f.js",
+    "index.html": "https://redbas3.github.io/react-masterclass-230610/index.html",
+    "main.f986a27f.js.map": "https://redbas3.github.io/react-masterclass-230610/static/js/main.f986a27f.js.map"
   },
   "entrypoints": [
-    "static/js/main.eadfd993.js"
+    "static/js/main.f986a27f.js"
   ]
 }
