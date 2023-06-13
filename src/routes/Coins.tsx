@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "./atom";
 
 const Container = styled.div`
   padding: 0 10px;
@@ -63,7 +65,13 @@ interface ICoin {
   type: string;
 }
 
+interface ICoinsProps {}
+
 function Coins() {
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const toggleDarakAtom = () => {
+    setDarkAtom((current) => !current);
+  };
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 
   return (
@@ -73,6 +81,7 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>Coin</Title>
+        <button onClick={toggleDarakAtom}>Toggle Dark Mode</button>
       </Header>
 
       {isLoading ? (
@@ -83,7 +92,7 @@ function Coins() {
             <Coin key={coin.id}>
               <Link
                 to={{
-                  pathname: `/${coin.id}`,
+                  pathname: `/react-masterclass-230610/${coin.id}`,
                   state: { name: coin.name },
                 }}
               >

@@ -5,6 +5,8 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { useState } from "react";
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./routes/atom";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400&display=swap');
@@ -93,20 +95,12 @@ const Button = styled.button`
 `;
 
 function App() {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("light");
-    }
-  };
-
+  const isDark = useRecoilValue(isDarkAtom);
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
       <BtnBar>
-        <Button onClick={toggleTheme}>Mode</Button>
+        <Button>Mode</Button>
       </BtnBar>
       <Router />
       <ReactQueryDevtools initialIsOpen={true} />
